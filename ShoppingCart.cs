@@ -41,43 +41,42 @@ namespace ShoppingCart
 
       /*  INTRODUCTION  */
       Console.Clear();
-      Console.Write("\n" +
-        "   *****************   \n" +
-        "   * Shopping Cart *   \n" +
-        "   *****************   \n" +
-        "══════════════════════════════════");
+      Console.Write("\n   *****************" +
+                    "\n   * Shopping Cart *" +
+                    "\n   *****************" +
+                    "\n══════════════════════════════════");
 
       do /* LOOPED INPUT */
       {
         /// increase counter
         inputCounter++;
         /// header
-        Console.Write($"\n =============================\n" +
-                     $"  Eingabe von Produkt Nr {inputCounter}\n" +
-                     $" --------------------------- \n");
+        Console.Write("\n =============================" +
+                     $"\n  Eingabe von Produkt Nr {inputCounter}" +
+                      "\n ---------------------------");
         /// PROMPT for valid netto price
         do
         {
-          Console.Write("  ? Netto-Stückpreis:  \n    ");
+          Console.Write("\n  ? Netto-Stückpreis:      ");
           productNettoString = Console.ReadLine();
           testDouble = double.TryParse(productNettoString, out productNetto);
         } while (!testDouble);
         /// PROMPT for valid product amount
         do
         {
-          Console.Write("  ? Stückzahl:  \n    x");
+          Console.Write("\n  ? Stückzahl:     x");
           productAmountString = Console.ReadLine();
           testInt = int.TryParse(productAmountString, out productAmount);
         } while (!testInt);
         /// get value
         billNetto = productNetto * productAmount;
         formattedNetto = billNetto.ToString("0.00");
-        Console.Write($"  - Nettopreis der {productAmount} Produkte:\n" +
-                     $"    {formattedNetto} EUR\n");
+        Console.Write($"\n  - Nettopreis der {productAmount} Produkte:" +
+                      $"\n    {formattedNetto} EUR");
         /// PROMPT for valid present option
         do
         {
-          Console.Write("  ? Geschenkoption \n    [ j / n ]  ");
+          Console.Write("\n  ? Geschenkoption \n    [ j / n ]  ");
           /// get present
           choice = Console.ReadKey().KeyChar;
           if (char.ToUpper(choice) == 'J')
@@ -93,7 +92,7 @@ namespace ShoppingCart
             Console.Write("\n  → falsche Eingabe \n");
         } while ((char.ToUpper(choice) != 'J') && (char.ToUpper(choice) != 'N'));
         /// 
-        Console.Write("\n --------------------------- ");
+        Console.Write("\n ---------------------------");
         /// prompt for valid input repetition
         do
         {
@@ -105,9 +104,9 @@ namespace ShoppingCart
 
       /* DELIVERY */
       /// PROMPT for valid country
-      Console.Write("\n  ? Lieferung nach \n    [ at / de ]  ");
       do
       {
+        Console.Write("\n  ? Lieferung nach \n    [ at / de ]  ");
         country = Console.ReadLine();
       } while ((country != "at") && (country != "de"));
       if (country == "at")
@@ -121,42 +120,42 @@ namespace ShoppingCart
 
       /* BILL CALCULATION & OUTPUT */
       /// header
-      Console.Write("\n══════════════════════════════════\n" +
-                   "   Ihre Rechnung  " +
-                   "\n --------------------------- ");
+      Console.Write("\n══════════════════════════════════" +
+                    "\n   Ihre Rechnung" +
+                    "\n---------------------------");
       /// calculate
       formattedNetto = billNetto.ToString("0.00");
-      Console.Write($"\n  - Nettopreis aller Produkte: \n" +
-                   $"       {formattedNetto} EUR");
+      Console.Write("\n  - Nettopreis aller Produkte:" +
+                   $"\n       {formattedNetto} EUR");
       /// brutto
       billBrutto = billNetto * ((100 + taxCountry) / 100);
       taxAmount = billBrutto - billNetto;
       formattedTaxAmount = taxAmount.ToString("0.00");
-      Console.Write($"\n  {taxCountry}% - MWSt der Produkte: \n" +
-                   $"       {formattedTaxAmount} EUR" +
-                    "\n ---------------------------");
+      Console.Write($"\n  {taxCountry}% - MWSt der Produkte:" +
+                    $"\n       {formattedTaxAmount} EUR" +
+                     " \n---------------------------");
       formattedBrutto = billBrutto.ToString("0.00");
-      Console.Write($"\n  - Bruttopreis aller Produkte: \n" +
-                   $"       {formattedBrutto} EUR");
+      Console.Write("\n  - Bruttopreis aller Produkte:" +
+                   $"\n       {formattedBrutto} EUR");
       /// devlivery cost
       if (billBrutto < 29.9)
       {
-        Console.Write($"\n  - Versandkosten : {deliveryCost} EUR" +
-                     "\n ---------------------------");
+        Console.Write($"\n  - Versandkosten: {deliveryCost} EUR" +
+                       "\n ---------------------------");
         billFull = billBrutto + deliveryCost;
       }
       else { billFull = billBrutto; }
       ///
       formattedFull = billFull.ToString("0.00");
       /// FINAL BILL
-      Console.Write("\n =============================\n" +
-                   "  - Gesamtpreis: \n" +
-                   $"       {formattedFull} EUR");
+      Console.Write("\n=============================" +
+                    "\n  - Gesamtpreis:" +
+                   $"\n       {formattedFull} EUR");
       /// wait a moment   
       Thread.Sleep(500);
       ///  EXIT PROMPT
       Console.Write("\n══════════════════════════════════" +
-                   "\n Beenden mit beliebiger Taste ...  ");
+                    "\n Beenden mit beliebiger Taste ...");
       Console.ReadKey();
       Console.Clear();
     }
