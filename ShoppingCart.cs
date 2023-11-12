@@ -22,22 +22,22 @@ namespace ShoppingCart
       bool testDouble,
            testInt;
       string productAmountString,
-            country,
-            formattedTaxAmount,
-            formattedNetto,
-            formattedBrutto,
-            formattedFull,
-            productNettoString;
+             country,
+             formattedTaxAmount,
+             formattedNetto,
+             formattedBrutto,
+             formattedFull,
+             productNettoString;
       int inputCounter = 0,
-         productAmount;
+          productAmount;
       double present = 2.50,
-            deliveryCost = 5.90,
-            taxCountry,
-            taxAmount,
-            billNetto,
-            billBrutto,
-            billFull,
-            productNetto;
+             deliveryCost = 5.90,
+             taxCountry,
+             taxAmount,
+             billNetto,
+             billBrutto,
+             billFull,
+             productNetto;
 
       /*  INTRODUCTION  */
       Console.Clear();
