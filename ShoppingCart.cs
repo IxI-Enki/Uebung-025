@@ -133,7 +133,7 @@ namespace ShoppingCart
       formattedTaxAmount = taxAmount.ToString("0.00");
       Console.Write($"\n  {taxCountry}% - MWSt der Produkte:" +
                     $"\n       {formattedTaxAmount} EUR" +
-                     " \n---------------------------");
+                     "\n ---------------------------");
       formattedBrutto = billBrutto.ToString("0.00");
       Console.Write("\n  - Bruttopreis aller Produkte:" +
                    $"\n       {formattedBrutto} EUR");
